@@ -5,9 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $outputFormat = $_POST['outputFormat'];
     $fileName = $_POST['fileName'];
     
-
     // Remove the data:image/png;base64 or similar prefix
-    
     $base64data = preg_replace('/^data:image\/\w+;base64,/', '', $base64data);
 
     // Decode base64 data
@@ -44,30 +42,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('HTTP/1.1 400 Bad Request');
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $base64data = $_POST['imageData'];
-
-// // Remove the data:image/webp;base64 prefix
-// $base64data = str_replace('data:image/webp;base64,', '', $base64data);
-
-// // Decode base64 data
-// $imageData = base64_decode($base64data);
-
-// // Save the webp image
-// file_put_contents('converted_image.webp', $imageData);
 ?>
