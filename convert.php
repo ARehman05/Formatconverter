@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     // Remove the data:image/png;base64 or similar prefix
+    
     $base64data = preg_replace('/^data:image\/\w+;base64,/', '', $base64data);
 
     // Decode base64 data
